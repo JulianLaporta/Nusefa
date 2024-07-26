@@ -1,0 +1,819 @@
+/* Estilos generales */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    color: #f90;
+}
+
+a {
+    color: #f90;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu-icono {
+    width: 30px;
+    cursor: pointer;
+}
+
+/* Estilos de navegación */
+.navbar {
+    display: none; /* Ocultar en móviles por defecto */
+}
+
+.menu input[type="checkbox"] {
+    display: none;
+}
+
+.menu input[type="checkbox"]:checked + label + .navbar {
+    display: block; /* Mostrar en móviles cuando el checkbox está marcado */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #333;
+}
+
+/* Estilos de pestañas */
+.tabs {
+    margin: 20px 0;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.service {
+    margin-bottom: 20px;
+}
+
+.service img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.btn-1 {
+    background-color: #e9650c;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-1:hover {
+    background-color: #d35400;
+}
+
+/* Estilos adaptativos */
+@media (max-width: 768px) {
+    .navbar {
+        display: block;
+    }
+
+    .menu-icono {
+        display: block;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-content img {
+        margin-top: 20px;
+    }
+}
+
+/* Estilo para el menú desplegable */
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown .dropdown-link {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+nav .dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+nav .dropdown .dropdown-menu li {
+    border-bottom: 1px solid #444;
+}
+
+nav .dropdown .dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav .dropdown .dropdown-menu li a:hover {
+    background: #555;
+}
+
+/* Efecto de desvanecimiento para las pestañas */
+.tab-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    opacity: 1;
+}
+
+/* Efectos de hover para los elementos de los servicios */
+.services .service {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .service:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación de carga */
+body.loading::before {
+    content: 'Cargando...';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+/* Efecto de parallax */
+.header-content {
+    background-attachment: fixed;
+}
+
+/* Botón para volver arriba */
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #e9650c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background: #d35400;
+}
+
+/* Estilo para el formulario de contacto */
+.contact-form {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+}
+
+.contact-form button {
+    background: #e9650c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #d35400;
+}
+
+/* Efectos de desplazamiento */
+.header-content {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.header-content:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Módulo de búsqueda */
+#search {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#search-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+#search-btn {
+    background: #e9650c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background: #d35400;
+}
+
+/* Testimonios */
+#testimonios {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.testimonials {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial {
+    flex: 1;
+    background: #222;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial:hover {
+    transform: scale(1.05);
+}
+
+.testimonials::before, .testimonials::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: #111;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.testimonials::before {
+    left: 10px;
+}
+
+.testimonials::after {
+    right: 10px;
+}
+
+/* Parallax */
+.parallax {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    background: #333;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#layer1 {
+    background-image: url('Imagenes/layer1.png');
+    transform: translateZ(-1px) scale(1.5);
+    z-index: 1;
+}
+
+#layer2 {
+    background-image: url('Imagenes/layer2.png');
+    transform: translateZ(-0.5px) scale(1.2);
+    z-index: 2;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+}
+
+/* Testimonios */
+.testimonial-carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial {
+    flex: 1;
+    padding: 20px;
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-carousel:hover .testimonial {
+    transform: scale(1.05);
+}
+
+/* Valoraciones */
+.rating {
+    display: flex;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.star {
+    margin: 0 5px;
+    color: #e9650c;
+}
+
+/* Animaciones de Hover */
+button:hover,
+a:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+/* Scroll Animado */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.animate {
+    opacity: 1;
+}
+
+@keyframes scrollAnim {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-link {
+    cursor: pointer;
+    display: block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #333;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1000;
+    top: 100%; /* Asegúrate de que el menú se muestre justo debajo del enlace */
+    left: 0;   /* Alinea el menú con el borde izquierdo del enlace */
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor centralizado */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Encabezado */
+header {
+    background: #000;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 10px solid #e9650c;
+}
+
+header a.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+header nav {
+    margin-top: 20px;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Contenido del encabezado */
+.header-content {
+    padding: 50px 0;
+    background: url('Imagenes/header-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #e9650c;
+}
+
+.header-content p {
+    font-size: 1.25rem;
+    margin: 20px 0;
+}
+
+.btn-1 {
+    display: inline-block;
+    color: #fff;
+    background: #e9650c;
+    padding: 12px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-1:hover {
+    background: #d64e0a;
+    transform: scale(1.05);
+}
+
+/* Pestañas */
+.tabs {
+    margin: 20px 0;
+}
+
+.tabs ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.tabs ul li {
+    margin: 0 10px;
+}
+
+.tabs ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #333;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tabs ul li a.active,
+.tabs ul li a:hover {
+    background: #e9650c;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+    color: #fff;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Sección de servicios */
+.services .service {
+    background: #111;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.services .service img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.services .service h3 {
+    margin: 20px 0;
+    color: #e9650c;
+}
+
+.services .service p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Pie de página */
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 10px solid #e9650c;
+}
+
+.parallax {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('Imagenes/parallax-layer.png') no-repeat center center/cover;
+    transform: translateZ(0);
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Carrusel de testimonios */
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
+}
+
+.carousel img {
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-link {
+    cursor: pointer;
+    display: block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #333;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 160px;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Carrusel, sección "Acerca de" y sección de contacto */
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-content img {
+    flex: 0 0 100%;
+}
+
+.about,
+.contact {
+    background: #111;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.about h2,
+.contact h2 {
+    color: #e9650c;
+}
+
+.about p,
+.contact p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form input,
+.contact form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+}
+
+.contact form input[type="submit"] {
+    background: #e9650c;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact form input[type="submit"]:hover {
+    background: #d64e0a;
+}
+

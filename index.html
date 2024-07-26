@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMERHUB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos globales para el cuerpo y contenedor principal */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 10px solid #e9650c;
+        }
+
+        header a.logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        header nav {
+            margin-top: 20px;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Estilos para el contenido del encabezado */
+        .header-content {
+            padding: 50px 0;
+            background: url('Imagenes/header-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #e9650c;
+        }
+
+        .header-content p {
+            font-size: 1.25rem;
+            margin: 20px 0;
+        }
+
+        .btn-1 {
+            display: inline-block;
+            color: #fff;
+            background: #e9650c;
+            padding: 12px 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 15px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-1:hover {
+            background: #d64e0a;
+        }
+
+        /* Estilos para el cuerpo principal */
+        main {
+            padding: 20px 0;
+            background: #000;
+        }
+
+        /* Estilos para las pestañas */
+        .tabs {
+            margin: 20px 0;
+        }
+
+        .tabs ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tabs ul li {
+            margin: 0 10px;
+        }
+
+        .tabs ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #333;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .tabs ul li a.active,
+        .tabs ul li a:hover {
+            background: #e9650c;
+        }
+
+        .tab-content {
+            display: none;
+            color: #fff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Estilos para la sección de servicios */
+        .services .service {
+            background: #111;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .services .service img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .services .service h3 {
+            margin: 20px 0;
+            color: #e9650c;
+        }
+
+        .services .service p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 10px solid #e9650c;
+        }
+
+        .parallax {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('Imagenes/parallax-layer.png') no-repeat center center/cover;
+            transform: translateZ(0);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Estilos para el carrusel de testimonios */
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+        }
+
+        .testimonial {
+            min-width: 300px;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .rating-section {
+            text-align: center;
+        }
+
+        .rating {
+            display: inline-block;
+        }
+
+        .rating .star {
+            font-size: 2rem;
+            color: #e9650c;
+        }
+
+        /* Estilos para el menú desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown .dropdown-link {
+            cursor: pointer;
+            display: block;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #333;
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Estilos para el carrusel, sección "Acerca de" y sección de contacto */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .carousel img {
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .about,
+        .contact {
+            background: #111;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about h2,
+        .contact h2 {
+            color: #e9650c;
+        }
+
+        .about p,
+        .contact p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+        }
+
+        .contact form input[type="submit"] {
+            background: #e9650c;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact form input[type="submit"]:hover {
+            background: #d64e0a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">GAMERHUB</a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="tab-link active">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-link">Secciones</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#gaming" class="tab-link">Gaming</a></li>
+                            <li><a href="#comunidad" class="tab-link">Comunidad</a></li>
+                            <li><a href="#noticias" class="tab-link">Noticias</a></li>
+                            <li><a href="#reseñas" class="tab-link">Reseñas</a></li>
+                            <li><a href="#guias" class="tab-link">Guías</a></li>
+                            <li><a href="#tutoriales" class="tab-link">Tutoriales</a></li>
+                            <li><a href="#contenido" class="tab-link">Contenido</a></li>
+                            <li><a href="#actualizaciones" class="tab-link">Actualizaciones</a></li>
+                            <li><a href="#eventos" class="tab-link">Eventos</a></li>
+                            <li><a href="#juegos" class="tab-link">Juegos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="inicio" class="tab-content active">
+            <div class="header-content">
+                <h1>Bienvenido a GAMERHUB</h1>
+                <p>Tu destino para todo lo relacionado con el mundo del gaming.</p>
+                <a href="#gaming" class="btn-1">Explorar</a>
+            </div>
+            <div class="carousel">
+                <img src="Imagenes/slide1.jpg" alt="Slide 1">
+                <img src="Imagenes/slide2.jpg" alt="Slide 2">
+                <img src="Imagenes/slide3.jpg" alt="Slide 3">
+            </div>
+        </div>
+
+        <div id="gaming" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/gaming.png" alt="Gaming">
+                <h3>Gaming</h3>
+                <p>Explora lo último en el mundo del gaming, desde noticias hasta reseñas y más.</p>
+            </div>
+        </div>
+
+        <div id="comunidad" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/comunidad.png" alt="Comunidad">
+                <h3>Comunidad</h3>
+                <p>Únete a nuestra vibrante comunidad de gamers y comparte tus experiencias.</p>
+            </div>
+        </div>
+
+        <div id="noticias" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/noticias.jpg" alt="Noticias">
+                <h3>Noticias</h3>
+                <p>Mantente al día con las últimas noticias y actualizaciones del mundo del gaming.</p>
+            </div>
+        </div>
+
+        <div id="reseñas" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/reseñas.jpg" alt="Reseñas">
+                <h3>Reseñas</h3>
+                <p>Lee reseñas detalladas de los juegos más recientes y populares.</p>
+            </div>
+        </div>
+
+        <div id="guias" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/guias.jpg" alt="Guías">
+                <h3>Guías</h3>
+                <p>Encuentra guías completas para mejorar tu experiencia de juego.</p>
+            </div>
+        </div>
+
+        <div id="tutoriales" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/tutoriales.jpg" alt="Tutoriales">
+                <h3>Tutoriales</h3>
+                <p>Aprende nuevas habilidades y estrategias con nuestros tutoriales detallados.</p>
+            </div>
+        </div>
+
+        <div id="contenido" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/contenido.jpg" alt="Contenido">
+                <h3>Contenido</h3>
+                <p>Descubre contenido exclusivo y único para los amantes del gaming.</p>
+            </div>
+        </div>
+
+        <div id="actualizaciones" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/actualizaciones.jpg" alt="Actualizaciones">
+                <h3>Actualizaciones</h3>
+                <p>Mantente informado sobre las últimas actualizaciones de tus juegos favoritos.</p>
+            </div>
+        </div>
+
+        <div id="eventos" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/eventos.jpg" alt="Eventos">
+                <h3>Eventos</h3>
+                <p>Participa en eventos emocionantes y competiciones con otros gamers.</p>
+            </div>
+        </div>
+
+        <div id="juegos" class="tab-content">
+            <div class="service">
+                <img src="Imagenes/juegos.jpg" alt="Juegos">
+                <h3>Juegos</h3>
+                <p>Explora una amplia variedad de juegos y encuentra tus nuevos favoritos.</p>
+            </div>
+        </div>
+
+        <!-- Nueva sección "Acerca de" -->
+        <div class="about">
+            <h2>Acerca de GAMERHUB</h2>
+            <p>GAMERHUB es una plataforma dedicada a los amantes de los videojuegos. Nuestro objetivo es proporcionar las últimas noticias, reseñas, guías y mucho más para mantener a nuestros usuarios informados y entretenidos. Únete a nuestra comunidad y descubre todo lo que tenemos para ofrecer.</p>
+        </div>
+
+        <!-- Nueva sección "Contacto" -->
+        <div class="contact">
+            <h2>Contacto</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>GAMERHUB &copy; 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para manejar el cambio de pestañas
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                link.classList.add('active');
+                document.querySelector(link.getAttribute('href')).classList.add('active');
+            });
+        });
+
+        // Funcionalidad del carrusel
+        </script>
+    <li class="dropdown">
+        <a href="#" class="dropdown-link">Secciones</a>
+        <ul class="dropdown-menu">
+            <li><a href="#gaming" class="tab-link">Gaming</a></li>
+            <li><a href="#comunidad" class="tab-link">Comunidad</a></li>
+            <li><a href="#noticias" class="tab-link">Noticias</a></li>
+            <li><a href="#reseñas" class="tab-link">Reseñas</a></li>
+            <li><a href="#guias" class="tab-link">Guías</a></li>
+            <li><a href="#tutoriales" class="tab-link">Tutoriales</a></li>
+            <li><a href="#contenido" class="tab-link">Contenido</a></li>
+            <li><a href="#actualizaciones" class="tab-link">Actualizaciones</a></li>
+            <li><a href="#eventos" class="tab-link">Eventos</a></li>
+            <li><a href="#juegos" class="tab-link">Juegos</a></li>
+        </ul>
+    </li>
+    <script>
+     // Función para manejar el cambio de pestañas con animación
+document.querySelectorAll('.tab-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        link.classList.add('active');
+        document.querySelector(targetId).classList.add('active');
+    });
+});
+
+// Funcionalidad del carrusel
+const carousel = document.querySelector('.carousel');
+const carouselContent = carousel.querySelector('.carousel-content');
+const images = carousel.querySelectorAll('img');
+const prevButton = document.createElement('button');
+const nextButton = document.createElement('button');
+let currentIndex = 0;
+
+function showImage(index) {
+    carouselContent.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+}
+
+function showNextImage() {
+    const nextIndex = (currentIndex + 1) % images.length;
+    showImage(nextIndex);
+}
+
+function showPrevImage() {
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(prevIndex);
+}
+
+prevButton.textContent = '‹';
+prevButton.className = 'carousel-button prev';
+nextButton.textContent = '›';
+nextButton.className = 'carousel-button next';
+
+prevButton.addEventListener('click', showPrevImage);
+nextButton.addEventListener('click', showNextImage);
+
+carousel.appendChild(prevButton);
+carousel.appendChild(nextButton);
+
+setInterval(showNextImage, 3000);
+
+    </script>
+</body>
+
+</html>
